@@ -1,0 +1,5 @@
+#!/bin/sh
+# Small root-only wrapper so the service does not have to pass arguments
+# through systemd's EnvironmentFile parser. ``-f`` bypasses the logind/polkit
+# path, which can hang an unattended VM during shutdown.
+exec /sbin/poweroff -f

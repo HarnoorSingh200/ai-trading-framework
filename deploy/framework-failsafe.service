@@ -1,0 +1,17 @@
+# The last resort for a scheduled machine: close the framework and power the
+# machine off, whatever the runner is doing.
+#
+# The runner powers the machine off itself once it has verified every service
+# closed - this exists for the cases where it never got that far: it never
+# became ready before the close, it died, or a service refused to stop.
+#
+# Optional; see deploy/README.md. Do not enable it on a machine you want to
+# reach in the evening.
+
+[Unit]
+Description=Last-resort close: stop the framework and power the machine off
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemctl stop trading-framework.service
+ExecStart=/usr/bin/systemctl poweroff

@@ -1,0 +1,29 @@
+#cloud-config
+# First-boot setup for the dedicated trading-framework-v3 VM.
+# The code tree is copied over SSH after the instance is running; this file
+# only prepares the operating system and the service account.
+
+timezone: Asia/Kolkata
+
+package_update: true
+packages:
+  - git
+  - python3-venv
+  - python3-pip
+  - ca-certificates
+  - curl
+  - rsync
+  # The operator site is a Vite dev server; it needs Node and npm.
+  - nodejs
+  - npm
+
+runcmd:
+  - |
+    set -eu
+    if ! id -u trading >/dev/null 2>&1; then
+      useradd -m -s /bin/bash trading
+    fi
+    install -d -m 0750 -o trading -g trading \
+      /opt/trading-framework-v3 \
+      /etc/trading-framework \
+      /var/lib/trading-framework

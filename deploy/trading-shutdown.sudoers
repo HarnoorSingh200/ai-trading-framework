@@ -1,0 +1,1 @@
+trading ALL=(root) NOPASSWD: /sbin/shutdown, /sbin/poweroff, /usr/sbin/shutdown, /usr/sbin/poweroff, /usr/local/sbin/trading-poweroff

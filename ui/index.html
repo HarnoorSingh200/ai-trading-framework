@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Trading Framework</title>
+    <script>
+      // Set the theme before the first paint. Without this the page renders in
+      // the light palette for a frame and then flips, which is the one piece of
+      // jank a themed app can always avoid.
+      (function () {
+        try {
+          var saved = localStorage.getItem("tf-theme");
+          var theme =
+            saved ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.dataset.theme = theme;
+        } catch (error) {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

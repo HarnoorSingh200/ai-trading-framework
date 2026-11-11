@@ -1,0 +1,58 @@
+#cloud-config
+# First-boot setup for the Oracle instance that runs the trading framework.
+#
+# Paste this file into the instance's "Initialization script" (user data) box
+# when creating it, after filling in REPO_URL below. It runs once, on the
+# first boot: installs the packages, clones the repository, builds the
+# virtual environment, installs the systemd unit and enables it. Every later
+# boot - after a stop/start cycle - starts the framework by itself, because
+# the unit is enabled and the boot volume keeps everything.
+#
+# Secrets are never in this file: they are placed once over SSH (see
+# deploy/README.md) and live on the boot volume from then on.
+
+timezone: Asia/Kolkata
+
+package_update: true
+packages:
+  - git
+  - python3-venv
+  - python3-pip
+  - ca-certificates
+
+runcmd:
+  - |
+    set -euo pipefail
+    # Fill this in: the instance needs to reach the repository once.
+    REPO_URL="https://github.com/CHANGE-ME/trading-framework-v3.git"
+    REPO_REF="main"
+    TARGET="/opt/trading-framework-v3"
+    SERVICE_USER="trading"
+
+    id -u "$SERVICE_USER" >/dev/null 2>&1 || useradd -m -s /bin/bash "$SERVICE_USER"
+    install -d -m 0750 -o "$SERVICE_USER" -g "$SERVICE_USER" "$TARGET" /etc/trading-framework
+
+    if [ ! -d "$TARGET/.git" ]; then
+      runuser -u "$SERVICE_USER" -- git clone --branch "$REPO_REF" "$REPO_URL" "$TARGET"
+    else
+      runuser -u "$SERVICE_USER" -- git -C "$TARGET" fetch --all
+      runuser -u "$SERVICE_USER" -- git -C "$TARGET" checkout "$REPO_REF"
+      runuser -u "$SERVICE_USER" -- git -C "$TARGET" pull --ff-only
+    fi
+
+    runuser -u "$SERVICE_USER" -- python3 -m venv "$TARGET/.venv"
+    runuser -u "$SERVICE_USER" -- "$TARGET/.venv/bin/pip" install --upgrade pip
+    runuser -u "$SERVICE_USER" -- "$TARGET/.venv/bin/pip" install "$TARGET"
+
+    install -m 0644 "$TARGET/deploy/trading-framework.service" /etc/systemd/system/trading-framework.service
+    systemctl daemon-reload
+    systemctl enable trading-framework.service
+
+    # Start now only if the secrets are already in place; otherwise the
+    # README's one-time step starts it, and every later boot starts it.
+    if [ -f /etc/trading-framework/secrets.env ]; then
+      systemctl restart trading-framework.service
+    fi
+
+    echo "trading-framework installed. Place /etc/trading-framework/secrets.env, then: systemctl start trading-framework" \
+      | tee /var/log/trading-framework-first-boot.txt

@@ -1,0 +1,347 @@
+<svg width="1400" height="960" viewBox="0 0 1400 960" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080C14" />
+      <stop offset="50%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#0A0F1D" />
+    </linearGradient>
+
+    <!-- Card Gradients -->
+    <linearGradient id="card-runner-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="card-ui-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#311226" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="card-m1-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#082F49" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="card-m2-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B0764" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="card-m3-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064E3B" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="card-m4-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#451A03" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="card-infra-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#134E4A" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Flow Arrow Marker -->
+    <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38BDF8" />
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#C084FC" />
+    </marker>
+    <marker id="arrow-emerald" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#34D399" />
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#FBBF24" />
+    </marker>
+    <marker id="arrow-indigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#818CF8" />
+    </marker>
+
+    <!-- Glow Filter -->
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1400" height="960" fill="url(#bg-grad)" />
+
+  <!-- Subtle Architectural Grid Dots -->
+  <g opacity="0.12" fill="#94A3B8">
+    <pattern id="dot-grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" />
+    </pattern>
+    <rect width="1400" height="960" fill="url(#dot-grid)" />
+  </g>
+
+  <!-- ==================== HEADER ==================== -->
+  <g transform="translate(50, 30)">
+    <!-- Pill Badge -->
+    <rect x="0" y="0" width="220" height="26" rx="13" fill="#1E293B" stroke="#475569" stroke-width="1" />
+    <circle cx="12" cy="13" r="4" fill="#10B981" />
+    <text x="24" y="17" fill="#E2E8F0" font-size="11" font-weight="600" letter-spacing="1">SYSTEM ARCHITECTURE</text>
+
+    <!-- Main Title -->
+    <text x="0" y="55" fill="#F8FAFC" font-size="26" font-weight="800" letter-spacing="-0.5">Autonomous AI Trading Framework</text>
+    <text x="0" y="76" fill="#94A3B8" font-size="13" font-weight="400">Production Multi-Agent Architecture • Deterministic Tick Pipeline • Risk-Bounded LLM Loops • Zero-Trust Execution</text>
+  </g>
+
+  <!-- ==================== TOP ROW ==================== -->
+
+  <!-- CARD 1: Central Runner / Supervisor -->
+  <g transform="translate(50, 125)">
+    <rect width="630" height="175" rx="12" fill="url(#card-runner-grad)" stroke="#6366F1" stroke-opacity="0.4" stroke-width="1.5" />
+    <rect x="16" y="14" width="76" height="22" rx="6" fill="#4338CA" />
+    <text x="24" y="29" fill="#EEF2FF" font-size="10.5" font-weight="700" letter-spacing="0.5">PORT 5205</text>
+    
+    <text x="102" y="30" fill="#FFFFFF" font-size="16" font-weight="700">Central Supervisor &amp; Lifecycle Runner</text>
+    <text x="560" y="29" fill="#818CF8" font-size="11" font-weight="600">daemon</text>
+
+    <line x1="16" y1="46" x2="614" y2="46" stroke="#4338CA" stroke-opacity="0.4" stroke-width="1" />
+
+    <!-- Feature 1 -->
+    <g transform="translate(20, 60)">
+      <circle cx="6" cy="6" r="3" fill="#818CF8" />
+      <text x="16" y="10" fill="#E0E7FF" font-size="12" font-weight="600">Deterministic Market Day Phase Machine</text>
+      <text x="16" y="26" fill="#94A3B8" font-size="11">09:10 VM Boot → 09:15 M1/M4 warm-up → 09:25 M3/M2 start → 14:30 close → 14:50 flat → 15:00 OCI poweroff</text>
+    </g>
+
+    <!-- Feature 2 -->
+    <g transform="translate(20, 100)">
+      <circle cx="6" cy="6" r="3" fill="#818CF8" />
+      <text x="16" y="10" fill="#E0E7FF" font-size="12" font-weight="600">Process Supervision &amp; Auto-Restart Engine</text>
+      <text x="16" y="26" fill="#94A3B8" font-size="11">Monitors sub-processes with health polling, crash recovery backoff, and non-blocking process tail log streaming</text>
+    </g>
+
+    <!-- Feature 3 -->
+    <g transform="translate(20, 140)">
+      <circle cx="6" cy="6" r="3" fill="#818CF8" />
+      <text x="16" y="10" fill="#E0E7FF" font-size="12" font-weight="600">Failsafe Watchdog &amp; Telegram Dispatcher</text>
+      <text x="16" y="26" fill="#94A3B8" font-size="11">Instant alerts on crashes or anomalous un-flushed states; in-guest systemd 15:15 IST backstop poweroff</text>
+    </g>
+  </g>
+
+  <!-- CARD 2: Operator UI Dashboard -->
+  <g transform="translate(720, 125)">
+    <rect width="630" height="175" rx="12" fill="url(#card-ui-grad)" stroke="#F43F5E" stroke-opacity="0.4" stroke-width="1.5" />
+    <rect x="16" y="14" width="76" height="22" rx="6" fill="#9F1239" />
+    <text x="24" y="29" fill="#FFF1F2" font-size="10.5" font-weight="700" letter-spacing="0.5">PORT 5200</text>
+    
+    <text x="102" y="30" fill="#FFFFFF" font-size="16" font-weight="700">Operator Dashboard (Svelte 5 + Vite)</text>
+    <text x="560" y="29" fill="#FDA4AF" font-size="11" font-weight="600">loopback</text>
+
+    <line x1="16" y1="46" x2="614" y2="46" stroke="#9F1239" stroke-opacity="0.4" stroke-width="1" />
+
+    <!-- Feature 1 -->
+    <g transform="translate(20, 60)">
+      <circle cx="6" cy="6" r="3" fill="#FB7185" />
+      <text x="16" y="10" fill="#FFE4E6" font-size="12" font-weight="600">Live Market Overview &amp; Technical Feed</text>
+      <text x="16" y="26" fill="#94A3B8" font-size="11">50 NIFTY constituent cards, streaming ticks, VWAP distance, volume ratios &amp; interactive candle visualizer</text>
+    </g>
+
+    <!-- Feature 2 -->
+    <g transform="translate(20, 100)">
+      <circle cx="6" cy="6" r="3" fill="#FB7185" />
+      <text x="16" y="10" fill="#FFE4E6" font-size="12" font-weight="600">Agent Fleet Telemetry &amp; Reasoning Log</text>
+      <text x="16" y="26" fill="#94A3B8" font-size="11">Real-time reasoning token counts, exact 50-word LLM trade justifications, model latency &amp; execution states</text>
+    </g>
+
+    <!-- Feature 3 -->
+    <g transform="translate(20, 140)">
+      <circle cx="6" cy="6" r="3" fill="#FB7185" />
+      <text x="16" y="10" fill="#FFE4E6" font-size="12" font-weight="600">Execution Ledger, PnL Curves &amp; Controls</text>
+      <text x="16" y="26" fill="#94A3B8" font-size="11">Live MTM position monitor, trailing stops, cumulative equity curve, and individual module service restarts</text>
+    </g>
+  </g>
+
+  <!-- ==================== MIDDLE ROW: CORE TRADING PIPELINE ==================== -->
+
+  <!-- MODULE 1: Market Data Engine -->
+  <g transform="translate(50, 335)">
+    <rect width="400" height="310" rx="12" fill="url(#card-m1-grad)" stroke="#0284C7" stroke-opacity="0.5" stroke-width="1.5" />
+    <rect x="16" y="14" width="86" height="22" rx="6" fill="#0369A1" />
+    <text x="24" y="29" fill="#E0F2FE" font-size="10" font-weight="700" letter-spacing="0.5">MOD 1 • 5201</text>
+    
+    <text x="110" y="30" fill="#FFFFFF" font-size="15" font-weight="700">Market Data Engine</text>
+
+    <line x1="16" y1="46" x2="384" y2="46" stroke="#0284C7" stroke-opacity="0.3" stroke-width="1" />
+
+    <g transform="translate(18, 58)">
+      <text x="0" y="12" fill="#38BDF8" font-size="11" font-weight="700">ZERODHA WEBSOCKET STREAM</text>
+      <text x="0" y="28" fill="#94A3B8" font-size="11">• Binary WebSocket tick ingestion</text>
+      <text x="0" y="44" fill="#94A3B8" font-size="11">• 50 NIFTY equities subscribed concurrently</text>
+      <text x="0" y="60" fill="#94A3B8" font-size="11">• Token cache with automated TOTP login</text>
+    </g>
+
+    <g transform="translate(18, 138)">
+      <text x="0" y="12" fill="#38BDF8" font-size="11" font-weight="700">DETERMINISTIC BAR BUILDER</text>
+      <text x="0" y="28" fill="#94A3B8" font-size="11">• Multi-timeframe: 1m, 5m, 15m closed bars</text>
+      <text x="0" y="44" fill="#94A3B8" font-size="11">• Settle buffer prevents incomplete boundary reads</text>
+      <text x="0" y="60" fill="#94A3B8" font-size="11">• Zero lookahead / zero retroactive mutation</text>
+    </g>
+
+    <g transform="translate(18, 218)">
+      <text x="0" y="12" fill="#38BDF8" font-size="11" font-weight="700">INDICATORS &amp; BENCHMARK</text>
+      <text x="0" y="28" fill="#94A3B8" font-size="11">• VWAP, EMA 20/50/200, SMA 20, RSI 14</text>
+      <text x="0" y="44" fill="#94A3B8" font-size="11">• Supertrend, ATR 14, Classic Pivot Points</text>
+      <text x="0" y="60" fill="#94A3B8" font-size="11">• Pre-market historical seed + NIFTY 50 index benchmark</text>
+    </g>
+  </g>
+
+  <!-- MODULE 2: AI Agent Engine -->
+  <g transform="translate(500, 335)">
+    <rect width="400" height="310" rx="12" fill="url(#card-m2-grad)" stroke="#9333EA" stroke-opacity="0.5" stroke-width="1.5" />
+    <rect x="16" y="14" width="86" height="22" rx="6" fill="#7E22CE" />
+    <text x="24" y="29" fill="#FAF5FF" font-size="10" font-weight="700" letter-spacing="0.5">MOD 2 • 5202</text>
+    
+    <text x="110" y="30" fill="#FFFFFF" font-size="15" font-weight="700">AI Agent Engine</text>
+
+    <line x1="16" y1="46" x2="384" y2="46" stroke="#9333EA" stroke-opacity="0.3" stroke-width="1" />
+
+    <g transform="translate(18, 58)">
+      <text x="0" y="12" fill="#C084FC" font-size="11" font-weight="700">CLOSED-CANDLE ASYNC SCHEDULER</text>
+      <text x="0" y="28" fill="#94A3B8" font-size="11">• Event loop syncs exactly on closed minute bars</text>
+      <text x="0" y="44" fill="#94A3B8" font-size="11">• Independent clock per agent strategy timeframe</text>
+      <text x="0" y="60" fill="#94A3B8" font-size="11">• Hard decision window cutoff at 14:30 IST</text>
+    </g>
+
+    <g transform="translate(18, 138)">
+      <text x="0" y="12" fill="#C084FC" font-size="11" font-weight="700">LLM REASONING &amp; TOOL CALLS</text>
+      <text x="0" y="28" fill="#94A3B8" font-size="11">• Dual backends: OpenAI Responses / DeepSeek</text>
+      <text x="0" y="44" fill="#94A3B8" font-size="11">• Structured reasoning tokens (deep internal chain)</text>
+      <text x="0" y="60" fill="#94A3B8" font-size="11">• Enforces strict 50-word concise trade rationale</text>
+    </g>
+
+    <g transform="translate(18, 218)">
+      <text x="0" y="12" fill="#C084FC" font-size="11" font-weight="700">PRE-VALIDATION RISK BOUNDS</text>
+      <text x="0" y="28" fill="#94A3B8" font-size="11">• Capital allocation limits (e.g. ₹40k - ₹50k max)</text>
+      <text x="0" y="44" fill="#94A3B8" font-size="11">• Mandatory structural stop-loss &amp; profit target</text>
+      <text x="0" y="60" fill="#94A3B8" font-size="11">• Tool sandbox restricts order size &amp; daily frequency</text>
+    </g>
+  </g>
+
+  <!-- MODULE 3: Order Execution Manager -->
+  <g transform="translate(950, 335)">
+    <rect width="400" height="310" rx="12" fill="url(#card-m3-grad)" stroke="#059669" stroke-opacity="0.5" stroke-width="1.5" />
+    <rect x="16" y="14" width="86" height="22" rx="6" fill="#047857" />
+    <text x="24" y="29" fill="#ECFDF5" font-size="10" font-weight="700" letter-spacing="0.5">MOD 3 • 5203</text>
+    
+    <text x="110" y="30" fill="#FFFFFF" font-size="15" font-weight="700">Order Execution Manager</text>
+
+    <line x1="16" y1="46" x2="384" y2="46" stroke="#059669" stroke-opacity="0.3" stroke-width="1" />
+
+    <g transform="translate(18, 58)">
+      <text x="0" y="12" fill="#34D399" font-size="11" font-weight="700">ORDER INTAKE &amp; VALIDATION</text>
+      <text x="0" y="28" fill="#94A3B8" font-size="11">• Rejects unphysical targets or inverted stop-loss</text>
+      <text x="0" y="44" fill="#94A3B8" font-size="11">• Enforces minimal Reward-to-Risk ratio (&gt;= 1.2:1)</text>
+      <text x="0" y="60" fill="#94A3B8" font-size="11">• Realistic slippage &amp; fill drift accounting</text>
+    </g>
+
+    <g transform="translate(18, 138)">
+      <text x="0" y="12" fill="#34D399" font-size="11" font-weight="700">LIVE MTM TICK MONITORING</text>
+      <text x="0" y="28" fill="#94A3B8" font-size="11">• Subscribed to real-time price stream from Mod 1</text>
+      <text x="0" y="44" fill="#94A3B8" font-size="11">• High-water mark trailing stop evaluation</text>
+      <text x="0" y="60" fill="#94A3B8" font-size="11">• Automatic order expiry on candle holding timeouts</text>
+    </g>
+
+    <g transform="translate(18, 218)">
+      <text x="0" y="12" fill="#34D399" font-size="11" font-weight="700">14:50 IST AUTO-EXIT &amp; LEDGER</text>
+      <text x="0" y="28" fill="#94A3B8" font-size="11">• Hard force-liquidation of open positions at 14:50</text>
+      <text x="0" y="44" fill="#94A3B8" font-size="11">• Zero intraday carry-over risk overnight</text>
+      <text x="0" y="60" fill="#94A3B8" font-size="11">• Atomic orders.json + append-only events.jsonl</text>
+    </g>
+  </g>
+
+  <!-- ==================== BOTTOM ROW: STORAGE & INFRASTRUCTURE ==================== -->
+
+  <!-- MODULE 4: Ledger & Performance Archive -->
+  <g transform="translate(50, 680)">
+    <rect width="770" height="235" rx="12" fill="url(#card-m4-grad)" stroke="#D97706" stroke-opacity="0.5" stroke-width="1.5" />
+    <rect x="16" y="14" width="86" height="22" rx="6" fill="#B45309" />
+    <text x="24" y="29" fill="#FFFBEB" font-size="10" font-weight="700" letter-spacing="0.5">MOD 4 • 5204</text>
+    
+    <text x="110" y="30" fill="#FFFFFF" font-size="15" font-weight="700">Ledger, Analytics &amp; S3 Cold Mirror</text>
+
+    <line x1="16" y1="46" x2="754" y2="46" stroke="#D97706" stroke-opacity="0.3" stroke-width="1" />
+
+    <g transform="translate(20, 60)">
+      <g>
+        <circle cx="6" cy="6" r="3" fill="#FBBF24" />
+        <text x="16" y="10" fill="#FEF3C7" font-size="12" font-weight="600">Full Execution History &amp; Replay Recovery</text>
+        <text x="16" y="26" fill="#94A3B8" font-size="11">Merges daily orders into permanent ledger; full state reconstructed from raw events log</text>
+      </g>
+      <g transform="translate(0, 52)">
+        <circle cx="6" cy="6" r="3" fill="#FBBF24" />
+        <text x="16" y="10" fill="#FEF3C7" font-size="12" font-weight="600">Deep Performance &amp; Risk Analytics</text>
+        <text x="16" y="26" fill="#94A3B8" font-size="11">Per-agent win-rate, R-multiple distributions, profit factor, max drawdown &amp; holding durations</text>
+      </g>
+      <g transform="translate(0, 104)">
+        <circle cx="6" cy="6" r="3" fill="#FBBF24" />
+        <text x="16" y="10" fill="#FEF3C7" font-size="12" font-weight="600">S3 Cold Storage Durable Mirroring</text>
+        <text x="16" y="26" fill="#94A3B8" font-size="11">Automated upload to AWS S3 (s3://your-archive-bucket/trading-framework/history.json); survives VPS shutdowns</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- CLOUD & HOST INFRASTRUCTURE -->
+  <g transform="translate(850, 680)">
+    <rect width="500" height="235" rx="12" fill="url(#card-infra-grad)" stroke="#0D9488" stroke-opacity="0.5" stroke-width="1.5" />
+    <rect x="16" y="14" width="104" height="22" rx="6" fill="#0F766E" />
+    <text x="24" y="29" fill="#F0FDFA" font-size="10" font-weight="700" letter-spacing="0.5">INFRASTRUCTURE</text>
+    
+    <text x="128" y="30" fill="#FFFFFF" font-size="15" font-weight="700">OCI Cloud &amp; Host Environment</text>
+
+    <line x1="16" y1="46" x2="484" y2="46" stroke="#0D9488" stroke-opacity="0.3" stroke-width="1" />
+
+    <g transform="translate(20, 60)">
+      <g>
+        <circle cx="6" cy="6" r="3" fill="#2DD4BF" />
+        <text x="16" y="10" fill="#CCFBF1" font-size="12" font-weight="600">Oracle Cloud VM.Standard.E4.Flex</text>
+        <text x="16" y="26" fill="#94A3B8" font-size="11">1 OCPU, 4 GB RAM, Canonical Ubuntu 24.04 LTS</text>
+      </g>
+      <g transform="translate(0, 52)">
+        <circle cx="6" cy="6" r="3" fill="#2DD4BF" />
+        <text x="16" y="10" fill="#CCFBF1" font-size="12" font-weight="600">OCI Resource Scheduler Automation</text>
+        <text x="16" y="26" fill="#94A3B8" font-size="11">Automated START at 09:10 IST, hard backstop STOP at 15:00 IST</text>
+      </g>
+      <g transform="translate(0, 104)">
+        <circle cx="6" cy="6" r="3" fill="#2DD4BF" />
+        <text x="16" y="10" fill="#CCFBF1" font-size="12" font-weight="600">Zero Inbound Port Exposure</text>
+        <text x="16" y="26" fill="#94A3B8" font-size="11">All service ports stay on 127.0.0.1; access via encrypted SSH tunnel</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ==================== FLOW CONNECTORS & DATA ARROWS ==================== -->
+
+  <!-- Flow 1: Module 1 -> Module 2 (Closed Candles & Indicators) -->
+  <path d="M 450 490 L 500 490" fill="none" stroke="#38BDF8" stroke-width="2.5" marker-end="url(#arrow-cyan)" />
+  <rect x="454" y="472" width="42" height="15" rx="3" fill="#0B132B" stroke="#0284C7" stroke-width="0.8" />
+  <text x="458" y="483" fill="#38BDF8" font-size="8.5" font-weight="700">BARS</text>
+
+  <!-- Flow 2: Module 2 -> Module 3 (Validated Trade Orders) -->
+  <path d="M 900 490 L 950 490" fill="none" stroke="#C084FC" stroke-width="2.5" marker-end="url(#arrow-purple)" />
+  <rect x="903" y="472" width="44" height="15" rx="3" fill="#0B132B" stroke="#9333EA" stroke-width="0.8" />
+  <text x="907" y="483" fill="#C084FC" font-size="8.5" font-weight="700">ORDERS</text>
+
+  <!-- Flow 3: Module 1 -> Module 3 (Live Ticks for MTM / Stop-Loss) -->
+  <path d="M 250 335 C 250 315, 1150 315, 1150 335" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-cyan)" />
+  <rect x="670" y="306" width="60" height="16" rx="3" fill="#0F172A" stroke="#0284C7" stroke-width="0.8" />
+  <text x="675" y="318" fill="#38BDF8" font-size="8.5" font-weight="600">LIVE TICKS</text>
+
+  <!-- Flow 4: Module 3 -> Module 4 (Sync Orders) -->
+  <path d="M 1150 645 C 1150 665, 450 665, 450 680" fill="none" stroke="#34D399" stroke-width="2" marker-end="url(#arrow-emerald)" />
+  <rect x="760" y="654" width="76" height="16" rx="3" fill="#0F172A" stroke="#059669" stroke-width="0.8" />
+  <text x="766" y="666" fill="#34D399" font-size="8.5" font-weight="600">LEDGER SYNC</text>
+
+  <!-- Flow 5: Central Runner -> Pipeline Modules (Supervision) -->
+  <path d="M 150 300 L 150 335" fill="none" stroke="#818CF8" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-indigo)" />
+  <path d="M 365 300 C 365 315, 700 315, 700 335" fill="none" stroke="#818CF8" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-indigo)" />
+
+  <!-- Flow 6: Operator UI -> All Modules (HTTP Proxy) -->
+  <path d="M 1035 300 L 1035 335" fill="none" stroke="#FB7185" stroke-width="1.5" stroke-dasharray="3,3" />
+
+  <!-- Footer Tagline -->
+  <g transform="translate(50, 935)">
+    <text x="0" y="0" fill="#64748B" font-size="11">Designed for Unattended Cloud Automation • Standard Library &amp; Fast Async Execution • Cryptographically Isolated Secrets</text>
+    <text x="1300" y="0" fill="#64748B" font-size="11" text-anchor="end">Trading Framework v3</text>
+  </g>
+</svg>

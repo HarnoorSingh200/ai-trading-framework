@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "trading-framework-v3"
+version = "0.1.0"
+description = "AI trading framework v3 - the market data, agent engine, order manager and reporting modules, and the operator UI."
+requires-python = ">=3.12"
+license = { text = "Proprietary" }
+dependencies = [
+    "boto3>=1.34",
+    "fastapi>=0.115",
+    "httpx>=0.27",
+    "pyotp>=2.9",
+    "uvicorn>=0.30",
+    "websockets>=13",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3", "ruff>=0.6"]
+
+[dependency-groups]
+dev = ["pytest>=8.3", "ruff>=0.6"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["module1", "module2", "module3", "module4", "common", "runner"]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "module1/tests",
+    "module2/tests",
+    "module3/tests",
+    "module4/tests",
+    "common/tests",
+    "runner/tests",
+]
+addopts = "-q --strict-markers"
+markers = [
+    "unit: pure logic tests",
+    "integration: touches the broker or the network",
+]
+filterwarnings = [
+    # Two deprecations raised inside Starlette's own test client, which is how
+    # the HTTP surface is tested. Not ours to fix, and not worth hiding anything
+    # else: every other warning stays an error-worthy signal in the output.
+    "ignore::DeprecationWarning:starlette.testclient",
+    "ignore:Using `httpx` with `starlette.testclient` is deprecated:DeprecationWarning",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "C4", "PTH"]
+ignore = ["E501"]

@@ -1,0 +1,29 @@
+# The operator site, as a systemd service.
+#
+# Install on the instance:
+#   sudo cp deploy/trading-site.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now trading-site
+#
+# Vite's dev server is what proxies /api, /agents, /orders, /report and
+# /central to the loopback services, so the site is served by "npm run dev",
+# not by a static build. Everything binds to 127.0.0.1; reach it through an SSH
+# tunnel, never by opening the port.
+
+[Unit]
+Description=Trading Framework v3 - operator site
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=trading
+Group=trading
+WorkingDirectory=/opt/trading-framework-v3/ui
+Environment=NODE_ENV=development
+ExecStart=/usr/bin/npm run dev
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

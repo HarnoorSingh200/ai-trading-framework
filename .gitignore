@@ -1,0 +1,45 @@
+# --- Local runtime data -------------------------------------------------
+data/
+logs/
+run/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+
+# Module 1's checked-in copies of exchange data (its constituent list, the
+# holiday-list seed). Runtime data under those directories stays ignored.
+!module1/data/
+!module1/data/**
+
+# --- Secrets and broker sessions (never commit) -------------------------
+.env
+.env.*
+!.env.example
+secrets/
+*.secret
+*token_cache*.json
+!module1/broker/token_cache.py
+*access_token*
+*totp*
+
+# --- Python -------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+pytest-of-*/
+
+# --- UI toolchain -------------------------------------------------------
+ui/node_modules/
+ui/dist/
+ui/.vite/
+
+# --- Editors / OS -------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

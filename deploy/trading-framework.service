@@ -1,0 +1,38 @@
+# The central process, as a systemd service.
+#
+# Install on the instance:
+#   sudo cp deploy/trading-framework.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now trading-framework
+#
+# On a scheduled machine the unit is enabled, not started by hand: the
+# instance comes up, the runner starts with the boot, works the day, and -
+# with FRAMEWORK_SELF_SHUTDOWN=true - stops every service at the close,
+# checks each one is really gone, and only then powers the machine off.
+
+[Unit]
+Description=Trading Framework v3 - central runner
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=trading
+Group=trading
+WorkingDirectory=/opt/trading-framework-v3
+# The unit's default; a setting of the same name in the file below wins.
+Environment=FRAMEWORK_SECRETS_FILE=/etc/trading-framework/secrets.env
+EnvironmentFile=-/etc/trading-framework/framework.env
+ExecStart=/opt/trading-framework-v3/.venv/bin/python -m runner
+# A service that dies is restarted; a machine that is powering off is not
+# fought with.
+Restart=always
+RestartSec=15
+# The runner closes its own children on SIGTERM before exiting; give it
+# longer than the sum of its own stop timeouts.
+TimeoutStopSec=90
+# Everything the runner starts dies with the unit, even a stuck child.
+KillMode=control-group
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+# Weekday failsafe: 15:15 IST, twenty-five minutes after the framework's
+# close. The runner should have powered the machine off a minute or two after
+# 14:50; if the machine is still up, something went wrong and an idle
+# instance is the wrong default.
+
+[Unit]
+Description=Weekday failsafe power-off for the trading framework
+
+[Timer]
+OnCalendar=Mon..Fri 15:15:00 Asia/Kolkata
+Persistent=false
+
+[Install]
+WantedBy=timers.target
